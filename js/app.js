@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  document.body.style.minHeight = '0';
+
   // Game configuration
   const MAX_ATTEMPTS = 6;
   let COMMON_WORDS = [];
