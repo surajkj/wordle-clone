@@ -196,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (key === 'Enter') {
       submitAttempt();
     } else if (key === 'Backspace') {
+      showMessage('');
       if (currentAttempt.length > 0) {
         currentAttempt = currentAttempt.slice(0, -1);
         updateBoard();

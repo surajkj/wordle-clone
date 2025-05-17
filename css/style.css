@@ -135,6 +135,57 @@ h1 {
   max-width: 50%;
 }
 
+/* Track */
+#word-length-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 8px;
+  background: #d3d6da;
+  border-radius: 4px;
+  margin: 0 10px;
+  outline: none;
+}
+
+/* Thumb - WebKit */
+#word-length-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #6aaa64;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+/* Thumb - Firefox */
+#word-length-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #6aaa64;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+/* Focus states */
+#word-length-slider:focus {
+  outline: none;
+}
+
+#word-length-slider:focus::-webkit-slider-thumb {
+  background: #5d9957;
+  transform: scale(1.1);
+}
+
+#word-length-slider:focus::-moz-range-thumb {
+  background: #5d9957;
+  transform: scale(1.1);
+}
+
 .dark-mode-toggle {
   display: flex;
   align-items: center;
