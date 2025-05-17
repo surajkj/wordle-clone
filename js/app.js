@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Game configuration
   const MAX_ATTEMPTS = 6;
-  let WORDS = [];
+  let COMMON_WORDS = [];
+  let DICTIONARY = [];
 
   // Dark mode functionality
   const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -23,22 +24,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordLengthSlider = document.getElementById('word-length-slider');
   const wordLengthValue = document.getElementById('word-length-value');
 
-  async function loadWords() {
-    const response = await fetch('./js/words.json');
-    const data = await response.json();
-    WORDS = data.WORDS;
-    initGame(); // Initialize game after words load
+  async function loadWords(length = wordLength) {
+    try {
+      // Load only the needed word length
+      const response = await fetch(`./js/wordlists/${length}-letters.json`);
+
+      if (!response.ok) {
+        throw new Error(`Failed to load ${length}-letter words`);
+      }
+
+      const data = await response.json();
+      DICTIONARY = data.DICTIONARY || [];
+      COMMON_WORDS = data.COMMON_WORDS || [];
+
+      // Validate we got words
+      if (DICTIONARY.length === 0 || COMMON_WORDS.length === 0) {
+        throw new Error(`No words loaded for ${length}-letter words`);
+      }
+      return true;
+    } catch (error) {
+      console.error('Error loading words:', error);
+      // Fallback to default length if current length fails
+      if (length !== 5) {
+        return loadWords(5);
+      }
+      return false;
+    }
   }
 
   // Initialize the game
   function initGame() {
     // Filter words by current length
-    const eligibleWords = WORDS.filter(word => word.length === wordLength);
+    const eligibleWords = COMMON_WORDS.filter(word => word.length === wordLength);
 
-    if (eligibleWords.length === 0) {
-      showMessage(`No ${wordLength}-letter words in dictionary`);
-      return;
-    }
+    // if (eligibleWords.length === 0) {
+    //   showMessage(`No ${wordLength}-letter words in dictionary`);
+    //   return;
+    // }
 
     // Select a random word
     targetWord = eligibleWords[Math.floor(Math.random() * eligibleWords.length)];
@@ -191,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (!WORDS.includes(currentAttempt)) {
+    if (!DICTIONARY.includes(currentAttempt)) {
       showMessage('Not in word list');
       return;
     }
@@ -246,8 +268,15 @@ document.addEventListener('DOMContentLoaded', () => {
     wordLengthValue.textContent = wordLength; // Live update
   });
 
-  wordLengthSlider.addEventListener('change', function() {
-    initGame(); // Only reset game when slider released
+  wordLengthSlider.addEventListener('change', async function() {
+      // Load new words based on the selected length
+      wordLength = parseInt(this.value);
+      const loaded = await loadWords(wordLength);
+      if (loaded) {
+        initGame();
+      } else {
+        showMessage('Error loading words. Using default length.');
+      }
   });
 
   // Check for saved user preference or use system preference
@@ -282,12 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-// Initialize dark mode when page loads
-  window.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
-    initGame();
-  });
-
 // Watch for system preference changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('darkMode')) {
@@ -299,10 +322,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Start the game
-  // initGame();
-  loadWords().then(r => {
-    console.log('Game initialized');
+// Initialize game (called when page loads)
+  async function initializeGame() {
+    const loaded = await loadWords();
+    if (loaded) {
+      initGame();
+    } else {
+      showMessage('Failed to load word lists');
+    }
+  }
+
+  // Initialize dark mode when page loads
+  window.addEventListener('DOMContentLoaded', () => {
+    initDarkMode();
+    initializeGame();
   });
 });
 
