@@ -1,16 +1,15 @@
 {
   "COMMON_WORDS": [
     "AGO", "ALL", "ANY", "BAD", "BIG", "FEW", "HOT", "HOW", "MAD", "NEW",
-    "NOW", "OLD", "ONE", "RED", "SAD", "SIX", "TEN", "TWO", "AHA", "AND",
-    "BAH", "BUT", "FOR", "NOR", "OFF", "QUA", "THE", "YET", "AIR", "ANT",
-    "BED", "BOY", "CAN", "CAR", "CAT", "DAD", "DAY", "DEW", "DOG", "ELF",
-    "ELK", "GYM", "INK", "JET", "KEY", "LOG", "MAN", "MOM", "PAL", "RUG",
-    "SAW", "SON", "SUN", "URN", "VET", "WAY", "YAP", "ZAG", "ZEN", "ZOO",
+    "NOW", "OLD", "ONE", "RED", "SAD", "SIX", "TEN", "TWO", "AND",
+    "BUT", "FOR", "NOR", "OFF", "THE", "YET", "AIR", "ANT",
+    "BED", "BOY", "CAN", "CAR", "CAT", "DAD", "DAY", "DEW", "DOG",
+    "GYM", "INK", "JET", "KEY", "LOG", "MAN", "MOM", "PAL", "RUG",
+    "SAW", "SON", "SUN", "URN", "VET", "WAY", "ZEN", "ZOO",
     "HER", "HIM", "HIS", "OUR", "SHE", "YOU", "ACE", "ADD", "ACT", "AID",
-    "AIL", "ARE", "ASK", "ATE", "BAR", "DIG", "EAT", "GET", "HAS", "LET",
+    "ARE", "ASK", "ATE", "BAR", "DIG", "EAT", "GET", "HAS", "LET",
     "MET", "NAP", "OUT", "PUT", "RUN", "SAT", "SAY", "SEE", "TAN", "USE",
-    "WAS", "WED", "ZAP", "ADO", "AJI", "ALB", "ASP", "BUR", "CAY", "CIS",
-    "ZEE", "ZED"
+    "WAS", "WED", "ZEE"
   ],
   "DICTIONARY": [
     "AAH", "AAL", "AAS", "ABA", "ABB", "ABS", "ABY", "ACE", "ACH", "ACK",
