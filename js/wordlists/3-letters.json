@@ -1,15 +1,14 @@
 {
   "COMMON_WORDS": [
-    "AGO", "ALL", "ANY", "BAD", "BIG", "FEW", "HOT", "HOW", "MAD", "NEW",
-    "NOW", "OLD", "ONE", "RED", "SAD", "SIX", "TEN", "TWO", "AND",
-    "BUT", "FOR", "NOR", "OFF", "THE", "YET", "AIR", "ANT",
-    "BED", "BOY", "CAN", "CAR", "CAT", "DAD", "DAY", "DEW", "DOG",
-    "GYM", "INK", "JET", "KEY", "LOG", "MAN", "MOM", "PAL", "RUG",
-    "SAW", "SON", "SUN", "URN", "VET", "WAY", "ZEN", "ZOO",
-    "HER", "HIM", "HIS", "OUR", "SHE", "YOU", "ACE", "ADD", "ACT", "AID",
-    "ARE", "ASK", "ATE", "BAR", "DIG", "EAT", "GET", "HAS", "LET",
-    "MET", "NAP", "OUT", "PUT", "RUN", "SAT", "SAY", "SEE", "TAN", "USE",
-    "WAS", "WED", "ZEE"
+    "ACE", "ACT", "ADD", "AGO", "AID", "AIR", "ALL", "AND", "ANT", "ANY"
+    "ARE", "ASK", "ATE", "BAD", "BAR", "BED", "BIG", "BOY", "BUT", "CAN"
+    "CAR", "CAT", "DAD", "DAY", "DEW", "DIG", "DOG", "EAT", "FEW", "FOR"
+    "GET", "GYM", "HAS", "HER", "HIM", "HIS", "HOT", "HOW", "INK", "JET"
+    "KEY", "LET", "LOG", "MAD", "MAN", "MET", "MOM", "NAP", "NEW", "NOR"
+    "NOW", "OFF", "OLD", "ONE", "OUR", "OUT", "PAL", "PUT", "RED", "RUG"
+    "RUN", "SAD", "SAT", "SAW", "SAY", "SEE", "SHE", "SIX", "SON", "SUN"
+    "TAN", "TEN", "THE", "TWO", "URN", "USE", "VET", "WAS", "WAY", "WED"
+    "YET", "YOU", "ZEN", "ZOO"
   ],
   "DICTIONARY": [
     "AAH", "AAL", "AAS", "ABA", "ABB", "ABS", "ABY", "ACE", "ACH", "ACK",
