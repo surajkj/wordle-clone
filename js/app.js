@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const htmlElement = document.documentElement;
 
+  const DEFAULT_STATS = {
+    gamesPlayed: 0,
+    gamesWon: 0,
+    currentStreak: 0,
+    maxStreak: 0,
+    guessDistribution: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0},
+    lastGame: null // {date: timestamp, won: boolean, guesses: number}
+  };
+
 // Game state
   let targetWord = '';
   let currentAttempt = '';
@@ -85,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       board.appendChild(row);
     }
+
+    updateAnalytics();
 
     // Reset keyboard
     keys.forEach(key => {
@@ -217,17 +228,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!DICTIONARY.includes(currentAttempt)) {
-      showMessage('Not in word list');
+      showMessage('Not a valid word');
       return;
     }
 
     attempts.push(currentAttempt);
 
-    if (currentAttempt === targetWord) {
-      showMessage('You win!');
+    if (currentAttempt.toUpperCase() === targetWord.toUpperCase()) {
+      showGameOverMessage(true);
       gameOver = true;
     } else if (attempts.length === MAX_ATTEMPTS) {
-      showMessage(`Game over! The word was ${targetWord}`);
+      showGameOverMessage(false);
       gameOver = true;
     }
 
@@ -312,6 +323,121 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       enableLightMode();
     }
+  });
+
+  function getStats() {
+    const stats = localStorage.getItem('wordleStats');
+    return stats ? JSON.parse(stats) : {...DEFAULT_STATS};
+  }
+
+  function saveStats(stats) {
+    localStorage.setItem('wordleStats', JSON.stringify(stats));
+  }
+
+  function updateStats(gameWon, guessCount) {
+    const stats = getStats();
+    const today = new Date().toDateString();
+
+    // Update basic stats
+    stats.gamesPlayed++;
+    if (gameWon) {
+      stats.gamesWon++;
+      stats.guessDistribution[guessCount]++;
+    }
+
+    // Update streaks
+    if (stats.lastGame && stats.lastGame.date === today) {
+      // Already played today
+      return;
+    }
+
+    if (gameWon) {
+      if (stats.lastGame && stats.lastGame.won) {
+        stats.currentStreak++;
+      } else {
+        stats.currentStreak = 1;
+      }
+      stats.maxStreak = Math.max(stats.maxStreak, stats.currentStreak);
+    } else {
+      stats.currentStreak = 0;
+    }
+
+    // Update last game
+    stats.lastGame = {
+      date: today,
+      won: gameWon,
+      guesses: guessCount
+    };
+
+    saveStats(stats);
+  }
+
+  function showGameOverMessage(won) {
+    if (won) {
+      const guesses = attempts.length;
+      showMessage(`You won in ${guesses} ${guesses === 1 ? 'try' : 'tries'}!`);
+      updateStats(true, guesses);
+    } else {
+      showMessage(`Game over! The word was ${targetWord}`);
+      updateStats(false, 0);
+    }
+  }
+
+  function showStats() {
+    const stats = getStats();
+    const winPercentage = stats.gamesPlayed > 0
+      ? Math.round((stats.gamesWon / stats.gamesPlayed) * 100)
+      : 0;
+  }
+
+  async function updateAnalytics() {
+    // Check if Google Analytics is loaded
+    if (typeof ga !== 'undefined') {
+      // Send event to Google Analytics
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Button',
+        eventAction: 'click',
+        eventLabel: 'New game'
+      });
+    } else if (typeof gtag !== 'undefined') {
+      // For Google Analytics 4 (gtag.js)
+      gtag('event', 'click', {
+        'event_category': 'Button',
+        'event_label': 'New game'
+      });
+    }
+  }
+
+// document.getElementById('stats-btn').addEventListener('click', showStats);
+
+// Toggle mobile menu
+  const hamburger = document.querySelector('.hamburger');
+  const headerRight = document.querySelector('.header-right');
+
+  hamburger.addEventListener('click', () => {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    headerRight.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+
+// Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.game-header') && headerRight.classList.contains('active')) {
+      headerRight.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+// Close menu when clicking a link
+  document.querySelectorAll('.header-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      headerRight.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   });
 
 // Watch for system preference changes

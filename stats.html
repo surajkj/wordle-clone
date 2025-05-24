@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Clone</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/app.js"></script>
+</head>
+<body>
+
+<header class="game-header">
+  <div class="header-left">
+    <a href="./index.html" class="stats-btn"><h1>Wordle Clone</h1></a>
+  </div>
+
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="header-right">
+    <div class="settings">
+      <label for="word-length-slider">Length:</label>
+      <input type="range" id="word-length-slider" min="2" max="6" value="5">
+      <span id="word-length-value">5</span>
+    </div>
+
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="dark-mode-toggle">
+      <label for="dark-mode-toggle">Dark</label>
+    </div>
+
+    <nav class="header-links">
+      <a href="./stats.html" class="stats-btn">Stats</a>
+      <a href="./help.html" class="help-btn">Help</a>
+    </nav>
+  </div>
+</header>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Wordle Clone</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/app.js"></script>
+</head>
+<body>
+<header class="game-header">
+  <div class="header-left">
+    <a href="./index.html" class="stats-btn"><h1>Wordle Clone</h1></a>
+  </div>
+
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="header-right">
+    <div class="settings">
+      <label for="word-length-slider">Length:</label>
+      <input type="range" id="word-length-slider" min="2" max="6" value="5">
+      <span id="word-length-value">5</span>
+    </div>
+
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="dark-mode-toggle">
+      <label for="dark-mode-toggle">Dark</label>
+    </div>
+
+    <nav class="header-links">
+      <a href="./stats.html" class="stats-btn">Stats</a>
+      <a href="./help.html" class="help-btn">Help</a>
+    </nav>
+  </div>
+</header>
+
+<main class="how-to-play">
+  <section class="instructions">
+    <div class="instruction-card">
+      <h2>Basic Rules</h2>
+      <p>Guess the hidden word in 6 tries or less.</p>
+      <p>Each guess must be a valid word with the selected number of letters.</p>
+      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+    </div>
+
+    <div class="instruction-card">
+      <h2>Examples</h2>
+
+      <div class="example-row">
+        <div class="tile correct">W</div>
+        <div class="tile">E</div>
+        <div class="tile">A</div>
+        <div class="tile">R</div>
+        <div class="tile">Y</div>
+      </div>
+      <p><strong>W</strong> is in the word and in the correct spot.</p>
+
+      <div class="example-row">
+        <div class="tile">P</div>
+        <div class="tile present">I</div>
+        <div class="tile">L</div>
+        <div class="tile">L</div>
+        <div class="tile">S</div>
+      </div>
+      <p><strong>I</strong> is in the word but in the wrong spot.</p>
+
+      <div class="example-row">
+        <div class="tile">V</div>
+        <div class="tile">A</div>
+        <div class="tile absent">G</div>
+        <div class="tile">U</div>
+        <div class="tile">E</div>
+      </div>
+      <p><strong>G</strong> is not in the word in any spot.</p>
+    </div>
+
+    <div class="instruction-card">
+      <h2>Tips & Strategies</h2>
+      <ul>
+        <li>Start with words that contain common vowels (A, E, I, O, U)</li>
+        <li>Use your first few guesses to eliminate as many letters as possible</li>
+        <li>Pay attention to letter frequency in the English language</li>
+        <li>Remember letters can appear more than once in a word</li>
+        <li>Try different word lengths using the slider for variety</li>
+      </ul>
+    </div>
+
+    <div class="instruction-card">
+      <h2>Features</h2>
+      <ul>
+        <li><strong>Dark Mode:</strong> Toggle for comfortable night play</li>
+        <li><strong>Word Length:</strong> Adjust from 2-6 letters</li>
+        <li><strong>Statistics:</strong> Track your progress over time</li>
+        <li><strong>Daily Challenge:</strong> Same word for all players each day</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="page-footer">
+  <p>Wordle Clone - A fun word guessing game</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
