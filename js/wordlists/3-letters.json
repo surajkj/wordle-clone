@@ -1,13 +1,13 @@
 {
   "COMMON_WORDS": [
-    "ACE", "ACT", "ADD", "AGO", "AID", "AIR", "ALL", "AND", "ANT", "ANY"
-    "ARE", "ASK", "ATE", "BAD", "BAR", "BED", "BIG", "BOY", "BUT", "CAN"
-    "CAR", "CAT", "DAD", "DAY", "DEW", "DIG", "DOG", "EAT", "FEW", "FOR"
-    "GET", "GYM", "HAS", "HER", "HIM", "HIS", "HOT", "HOW", "INK", "JET"
-    "KEY", "LET", "LOG", "MAD", "MAN", "MET", "MOM", "NAP", "NEW", "NOR"
-    "NOW", "OFF", "OLD", "ONE", "OUR", "OUT", "PAL", "PUT", "RED", "RUG"
-    "RUN", "SAD", "SAT", "SAW", "SAY", "SEE", "SHE", "SIX", "SON", "SUN"
-    "TAN", "TEN", "THE", "TWO", "URN", "USE", "VET", "WAS", "WAY", "WED"
+    "ACE", "ACT", "ADD", "AGO", "AID", "AIR", "ALL", "AND", "ANT", "ANY",
+    "ARE", "ASK", "ATE", "BAD", "BAR", "BED", "BIG", "BOY", "BUT", "CAN",
+    "CAR", "CAT", "DAD", "DAY", "DEW", "DIG", "DOG", "EAT", "FEW", "FOR",
+    "GET", "GYM", "HAS", "HER", "HIM", "HIS", "HOT", "HOW", "INK", "JET",
+    "KEY", "LET", "LOG", "MAD", "MAN", "MET", "MOM", "NAP", "NEW", "NOR",
+    "NOW", "OFF", "OLD", "ONE", "OUR", "OUT", "PAL", "PUT", "RED", "RUG",
+    "RUN", "SAD", "SAT", "SAW", "SAY", "SEE", "SHE", "SIX", "SON", "SUN",
+    "TAN", "TEN", "THE", "TWO", "URN", "USE", "VET", "WAS", "WAY", "WED",
     "YET", "YOU", "ZEN", "ZOO"
   ],
   "DICTIONARY": [

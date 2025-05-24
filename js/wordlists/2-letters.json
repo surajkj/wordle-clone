@@ -1,7 +1,7 @@
 {
   "COMMON_WORDS": [
-    "AM", "AN", "AS", "AT", "BE", "BY", "DO", "GO", "HE", "HI"
-    "IF", "IN", "IS", "IT", "ME", "MY", "NO", "OF", "ON", "OR"
+    "AM", "AN", "AS", "AT", "BE", "BY", "DO", "GO", "HE", "HI",
+    "IF", "IN", "IS", "IT", "ME", "MY", "NO", "OF", "ON", "OR",
     "SO", "TO", "UP", "US", "WE"
   ],
   "DICTIONARY": [
