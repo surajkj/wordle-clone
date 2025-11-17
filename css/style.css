@@ -578,3 +578,103 @@ h1 {
   color: #FFFFFF;
   text-decoration: none;
 }
+
+
+/* Main container */
+.how-to-play {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Instructions layout */
+.instructions {
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Individual cards */
+.instruction-card {
+  background: #ffffff10;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #ffffff20;
+}
+
+/* Headings */
+.instruction-card h2 {
+  margin-bottom: 1rem;
+  text-align: left; /* keeps heading aligned with text */
+}
+
+/* Tile rows */
+.example-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Wordle tiles */
+.tile {
+  width: 48px;
+  height: 48px;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 6px;
+}
+
+.tile.correct {
+  background: #6aaa64;
+  color: white;
+}
+
+.tile.present {
+  background: #c9b458;
+  color: white;
+}
+
+.tile.absent {
+  background: #787c7e;
+  color: white;
+}
+
+/* List spacing */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+  .tile {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .instruction-card {
+    padding: 1rem;
+  }
+}
+
+
+/* Default styling */
+.btn-wrapper {
+  margin-top: 20px; /* normal spacing */
+}
+
+/* Increase top space on small screens */
+@media (max-width: 600px) {
+  .btn-wrapper {
+    margin-top: 60px; /* more top space on small screens */
+  }
+}

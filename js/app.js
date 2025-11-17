@@ -78,10 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
     currentAttempt = '';
     attempts = [];
     gameOver = false;
-    messageEl.textContent = '';
 
-    // Clear and rebuild the board
-    board.innerHTML = '';
+    if (messageEl !== undefined && messageEl !== null) {
+      messageEl.textContent = '';
+    }
+
+
+    if(board !== undefined && board !== null) {
+      // Clear and rebuild the board
+      board.innerHTML = '';
+    }
 
     for (let i = 0; i < MAX_ATTEMPTS; i++) {
       const row = document.createElement('div');
@@ -92,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tile.className = 'tile';
         row.appendChild(tile);
       }
-      board.appendChild(row);
+      if(board !== undefined && board !== null) {
+        board.appendChild(row);
+      }
     }
 
     updateAnalytics();
@@ -269,7 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  resetBtn.addEventListener('click', initGame);
+  if(resetBtn !== undefined && resetBtn !== null) {
+    resetBtn.addEventListener('click', initGame);
+  }
 
   document.getElementById('word-length-slider').addEventListener('input', function() {
     wordLength = parseInt(this.value);
