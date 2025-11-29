@@ -20,10 +20,24 @@ export default function GamePage() {
 
     const [showModal, setShowModal] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
+    const [gameStats, setGameStats] = useState(() => {
+        // Load from localStorage on initial render
+        const savedStats = localStorage.getItem('gameStats');
+        return savedStats ? JSON.parse(savedStats) : { won: 0, lost: 0 };
+    });
+
 
     useEffect(() => {
         if (gameStatus === 'won' || gameStatus === 'lost') {
-            setTimeout(() => setShowModal(true), 1500);
+            const newStats = {
+                ...gameStats,
+                [gameStatus]: gameStats[gameStatus] + 1
+            };
+
+            setGameStats(newStats);
+            localStorage.setItem('gameStats', JSON.stringify(newStats));
+
+            setTimeout(() => setShowModal(true), 100);
         }
     }, [gameStatus]);
 
@@ -61,32 +75,41 @@ export default function GamePage() {
             </header>
 
             {/* Game Stats */}
-            <div className="flex space-x-6 mb-6 text-center">
-              <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
-                <p className="text-sm text-gray-600 dark:text-gray-300">Round</p>
-                <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{turn}/6</p>
+              <div className="flex space-x-6 mb-6 text-center">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Round</p>
+                      <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{turn}/6</p>
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Status</p>
+                      <p className={`text-xl font-bold ${gameStatus === 'lost' ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400'} capitalize`}>
+                          {gameStatus}
+                      </p></div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Win</p>
+                      <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{gameStats.won}</p>
+                  </div>
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Lost</p>
+                      <p className="text-xl font-bold text-red-600 dark:text-red-400">{gameStats.lost}</p>
+                  </div>
+                  {/*<div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">*/}
+                  {/*    <p className="text-sm text-gray-600 dark:text-gray-300">Length</p>*/}
+                  {/*    <p className="text-xl font-bold text-purple-600 dark:text-purple-400">{wordLength}</p>*/}
+                  {/*</div>*/}
               </div>
-              <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">
-                <p className="text-sm text-gray-600 dark:text-gray-300">Status</p>
-                <p className="text-xl font-bold text-green-600 dark:text-green-400 capitalize">{gameStatus}</p>
-              </div>
-              {/*<div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm transition-colors duration-300">*/}
-              {/*    <p className="text-sm text-gray-600 dark:text-gray-300">Length</p>*/}
-              {/*    <p className="text-xl font-bold text-purple-600 dark:text-purple-400">{wordLength}</p>*/}
-              {/*</div>*/}
-            </div>
 
-            {/* Game Board */}
-            <GameBoard
-              guesses={guesses}
-              currentGuess={currentGuess}
-              turn={turn}
-              wordLength={wordLength}
-            />
+              {/* Game Board */}
+              <GameBoard
+                  guesses={guesses}
+                  currentGuess={currentGuess}
+                  turn={turn}
+                  wordLength={wordLength}
+              />
 
-            {/* Keyboard */}
-            <div className="mt-8">
-              <Keyboard usedKeys={usedKeys} onKeyPress={handleKeyup} wordLength={wordLength}/>
+              {/* Keyboard */}
+              <div className="mt-8">
+                  <Keyboard usedKeys={usedKeys} onKeyPress={handleKeyup} wordLength={wordLength}/>
             </div>
 
 
@@ -123,6 +146,7 @@ export default function GamePage() {
           <SettingsModal
             isOpen={showSettings}
             onClose={() => setShowSettings(false)}
+            setGameStats={setGameStats}
           />
         </>
     );

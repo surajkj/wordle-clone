@@ -15,6 +15,10 @@ export default function Navbar({ onOpenSettings }) {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const setGameStats = () => {
+
+    }
+
     const isActive = (path) => location.pathname === path;
 
     return (
@@ -163,6 +167,7 @@ export default function Navbar({ onOpenSettings }) {
                 <SettingsModal
                     isOpen={showSettings}
                     onClose={() => setShowSettings(false)}
+                    setGameStats={setGameStats}
                 />
             </div>
         </nav>

@@ -1,6 +1,6 @@
 import { useSettings } from '../contexts/SettingsContext';
 
-export default function SettingsModal({ isOpen, onClose }) {
+export default function SettingsModal({ isOpen, onClose, setGameStats }) {
     const { wordLength, setWordLength } = useSettings();
 
     if (!isOpen) return null;
@@ -8,6 +8,12 @@ export default function SettingsModal({ isOpen, onClose }) {
     const handleLengthChange = (length) => {
         setWordLength(length);
     };
+
+  const resetStats = () => {
+    const resetStats = { won: 0, lost: 0 };
+    setGameStats(resetStats);
+    localStorage.setItem('gameStats', JSON.stringify(resetStats));
+  };
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -84,15 +90,22 @@ export default function SettingsModal({ isOpen, onClose }) {
                         </p>
                     </div>
 
+
                     {/* Close Button */}
-                    <div className="mt-6 flex justify-end">
-                        <button
-                            onClick={onClose}
-                            className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
-                        >
-                            Done
-                        </button>
-                    </div>
+                  <div className="mt-6 flex justify-between">
+                    <button
+                      onClick={resetStats}
+                      className="bg-red-500/90 hover:bg-red-600/90 active:bg-red-700/90 dark:bg-red-600/90 dark:hover:bg-red-700/90 dark:active:bg-red-800/90 text-white font-semibold py-2 px-6 rounded-lg backdrop-blur-sm transition-all duration-200 border border-red-400/30 hover:border-red-300/50 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                    >
+                      Reset Stats
+                    </button>
+                    <button
+                      onClick={onClose}
+                      className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
+                    >
+                      Done
+                    </button>
+                  </div>
                 </div>
             </div>
         </div>
