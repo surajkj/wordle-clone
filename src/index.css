@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Tailwind v4 automatically includes base, components, and utilities */
+/* No need for @tailwind directives */
+
+/* Your custom styles */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+body {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
