@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title desc">
+    <title id="title">Letter W on fuchsia to cyan gradient background</title>
+    <desc id="desc">Capital letter W centered on a left-to-right gradient from fuchsia-500 to cyan-500.</desc>
+
+    <defs>
+        <!-- Tailwind-like colors: fuchsia-500 (#d946ef) -> cyan-500 (#06b6d4) -->
+        <linearGradient id="g" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="#fcff9e"/>
+            <stop offset="100%" stop-color="#06b6d4"/>
+        </linearGradient>
+
+        <!-- soft drop shadow -->
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.25"/>
+        </filter>
+    </defs>
+
+    <!-- background -->
+    <rect width="100%" height="100%" fill="url(#g)"/>
+
+    <!-- centered letter W -->
+    <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle"
+          font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
+          font-weight="900" font-size="260" fill="#ffffff" filter="url(#shadow)">
+        W
+    </text>
+</svg>
