@@ -1,18 +1,15 @@
 {
   "name": "wordle-pwa",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "homepage": "https://surajkj.github.io/wordle-clone/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
-
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "react": "^19.2.0",
