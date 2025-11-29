@@ -30,7 +30,7 @@ export default function GameBoard({ guesses, currentGuess, turn, wordLength }) {
                                             : letter?.color === 'yellow'
                                                 ? 'bg-yellow-500 dark:bg-yellow-600'
                                                 : letter?.color === 'gray'
-                                                    ? 'bg-gray-500 dark:bg-gray-600'
+                                                    ? 'bg-gray-500 dark:bg-gray-500'
                                                     : 'border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white'
                                     }`}
                                 >

@@ -11,21 +11,21 @@ const ThemeProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        console.log('Theme effect running, isDark:', isDark);
+        // console.log('Theme effect running, isDark:', isDark);
         localStorage.setItem('wordle-dark-mode', JSON.stringify(isDark));
 
         const html = document.documentElement;
 
         if (isDark) {
             html.classList.add('dark');
-            console.log('Added dark class');
+            // console.log('Added dark class');
         } else {
             html.classList.remove('dark');
-            console.log('Removed dark class');
+            // console.log('Removed dark class');
         }
 
         // Debug: log current classes
-        console.log('HTML classes:', html.className);
+        // console.log('HTML classes:', html.className);
     }, [isDark]);
 
     const toggleTheme = () => {

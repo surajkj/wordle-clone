@@ -7,14 +7,12 @@ export default function Keyboard({ usedKeys, onKeyPress, wordLength }) {
 
     const getKeyColor = (key) => {
         const color = usedKeys[key];
-        console.log(`Key: ${key}, Color: ${color}`); // Debug log
-
         if (color === 'green') {
             return 'bg-green-500 dark:bg-green-600 text-white hover:bg-green-600 dark:hover:bg-green-700';
         } else if (color === 'yellow') {
             return 'bg-yellow-500 dark:bg-yellow-600 text-white hover:bg-yellow-600 dark:hover:bg-yellow-700';
         } else if (color === 'gray') {
-            return 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700';
+            return 'bg-gray-500 dark:bg-gray-500 text-white hover:bg-gray-500 dark:hover:bg-gray-700';
         } else {
             return 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600';
         }

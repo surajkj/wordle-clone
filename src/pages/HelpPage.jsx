@@ -10,7 +10,7 @@ export default function HelpPage() {
                         How to Play Wordle
                     </h1>
                     <Link
-                        to="/"
+                        to="/wordle-clone"
                         className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200"
                     >
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +140,7 @@ export default function HelpPage() {
                 {/* Back to Game Button */}
                 <div className="mt-8 text-center">
                     <Link
-                        to="/"
+                        to="/wordle-clone"
                         className="inline-flex items-center bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

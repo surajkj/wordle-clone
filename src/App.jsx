@@ -11,7 +11,8 @@ function App() {
             <Navbar />
 
             <Routes>
-                <Route path="/wordle-clone/" element={<GamePage />} />
+                <Route path="/" element={<GamePage />} />
+                <Route path="/wordle-clone" element={<GamePage />} />
                 <Route path="/wordle-clone/help" element={<HelpPage />} />
                 <Route path="/wordle-clone/about" element={<AboutPage />} />
             </Routes>
