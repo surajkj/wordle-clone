@@ -68,5 +68,4 @@ export default defineConfig({
       }
     })
   ],
-  base: './wordle-clone/',
 })
