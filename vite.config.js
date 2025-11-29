@@ -17,8 +17,8 @@ export default defineConfig({
         theme_color: '#3B82F6',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
-        scope: '/',
+        start_url: '/wordle-clone/',
+        scope: '/wordle-clone/',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -40,7 +40,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        navigateFallback: '/index.html',
+        navigateFallback: '/wordle-clone/index.html',
         navigateFallbackAllowlist: [/^(?!\/__).*/],
         runtimeCaching: [
           {
@@ -68,5 +68,5 @@ export default defineConfig({
       }
     })
   ],
-  base: './wordle-clone/',
+  base: '/wordle-clone/',
 })
