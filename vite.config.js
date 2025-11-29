@@ -68,5 +68,5 @@ export default defineConfig({
       }
     })
   ],
-  base: './',
+  base: './wordle-clone/',
 })
