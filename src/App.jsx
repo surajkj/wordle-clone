@@ -11,9 +11,9 @@ function App() {
             <Navbar />
 
             <Routes>
-                <Route path="/" element={<GamePage />} />
-                <Route path="/help" element={<HelpPage />} />
-                <Route path="/about" element={<AboutPage />} />
+                <Route path="/wordle-clone/" element={<GamePage />} />
+                <Route path="/wordle-clone/help" element={<HelpPage />} />
+                <Route path="/wordle-clone/about" element={<AboutPage />} />
             </Routes>
         </div>
     );

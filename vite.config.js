@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   // This makes everything work both locally and on GitHub Pages
-  base: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/',
+  base: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/wordle-clone/',
 
   plugins: [
     react(),
@@ -21,8 +21,8 @@ export default defineConfig({
         theme_color: '#3B82F6',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/',
-        scope: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/',
+        start_url: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/wordle-clone/',
+        scope: process.env.GITHUB_PAGES ? '/wordle-clone/' : '/wordle-clone/',
         icons: [
           {
             src: 'pwa-192x192.png',
