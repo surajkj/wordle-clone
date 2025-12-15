@@ -1,5 +1,7 @@
 # Wordle Clone PWA
 
+[Play](https://surajkj.github.io/wordle-clone/)
+
 A modern, feature-rich Wordle clone built with **React**, **Vite**, and **Tailwind CSS**. This Progressive Web App (PWA) supports multiple word lengths, dark mode, and works offline.
 
 ## 🎮 Features
